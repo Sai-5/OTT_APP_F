@@ -1,0 +1,17 @@
+@import "../../../mixins.scss";
+.title {
+  font-size: 28px;
+  line-height: 40px;
+  @include md {
+    font-size: 34px;
+    line-height: 44px;
+  }
+}
+
+.emptyTitle {
+  color: white;
+  text-align: center;
+  height: 50px;
+  font-weight: 500;
+  font-size: 30px;
+}

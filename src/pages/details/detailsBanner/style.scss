@@ -1,0 +1,342 @@
+@import "../../../mixins.scss";
+.detailsBanner {
+  width: 100%;
+  background-color: var(--black);
+  padding-top: 100px;
+  margin-bottom: 50px;
+  @include md {
+    margin-bottom: 0;
+    padding-top: 120px;
+    min-height: 700px;
+  }
+  .backdrop-img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.1;
+    overflow: hidden;
+    .lazy-load-image-background {
+      width: 100%;
+      height: 100%;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+    }
+  }
+  .opacity-layer {
+    width: 100%;
+    height: 250px;
+    background: linear-gradient(180deg, rgba(4, 21, 45, 0) 0%, #04152d 79.17%);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+
+  .content {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    gap: 25px;
+    @include md {
+      gap: 50px;
+      flex-direction: row;
+    }
+    .left {
+      flex-shrink: 0;
+      .posterImg {
+        width: 100%;
+        display: block;
+        border-radius: 12px;
+        @include md {
+          max-width: 350px;
+        }
+      }
+    }
+    .right {
+      color: white;
+      .title {
+        font-size: 28px;
+        line-height: 40px;
+        @include md {
+          font-size: 34px;
+          line-height: 44px;
+        }
+      }
+      .titleContainer {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .subtitle {
+        font-size: 16px;
+        line-height: 24px;
+        margin-bottom: 15px;
+        font-style: italic;
+        opacity: 0.5;
+        @include md {
+          font-size: 20px;
+          line-height: 28px;
+        }
+      }
+      .genres {
+        margin-bottom: 25px;
+        flex-flow: row wrap;
+      }
+      .overview {
+        margin-bottom: 25px;
+        .heading {
+          font-size: 24px;
+          margin-bottom: 10px;
+        }
+        .description {
+          line-height: 24px;
+          @include md {
+            padding-right: 100px;
+          }
+        }
+      }
+      .circleRating {
+        max-width: 70px;
+        background-color: var(--black2);
+        @include md {
+          max-width: 90px;
+        }
+        .CircularProgressbar-text {
+          fill: white;
+        }
+      }
+      .playbtn {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 10px !important;
+        cursor: pointer !important;
+        background-color: #04152d !important;
+        padding: 12px 25px !important;
+        border-radius: 30px !important;
+        border: 2px solid #ffffff !important;
+        transition: all 0.3s ease-in-out !important;
+        margin-left: 15px !important;
+        
+        svg {
+          width: 24px;
+          height: 24px;
+          fill: #ffffff;
+          @include md {
+            width: 28px;
+            height: 28px;
+          }
+        }
+        
+        .text {
+          color: #ffffff !important;
+          font-size: 18px;
+          font-weight: 700;
+          letter-spacing: 0.5px;
+          text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+          white-space: nowrap;
+        }
+        
+        &:hover {
+          background-color: #0a2b4e;
+          transform: translateY(-2px);
+          box-shadow: 0 4px 15px rgba(4, 21, 45, 0.5);
+        }
+        
+        &:active {
+          transform: translateY(0);
+        }
+        .triangle {
+          stroke-dasharray: 240;
+          stroke-dashoffset: 480;
+          stroke: white;
+          transform: translateY(0);
+          transition: all 0.7s ease-in-out;
+        }
+        .circle {
+          stroke: white;
+          stroke-dasharray: 650;
+          stroke-dashoffset: 1300;
+          transition: all 0.5s ease-in-out;
+        }
+        &:hover {
+          .text {
+            color: var(--pink);
+          }
+          .triangle {
+            stroke-dashoffset: 0;
+            opacity: 1;
+            stroke: var(--pink);
+            animation: trailorPlay 0.7s ease-in-out;
+          }
+          .circle {
+            stroke-dashoffset: 0;
+            stroke: var(--pink);
+          }
+        }
+      }
+      .watchbtn {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        cursor: pointer;
+        svg {
+          width: 60px;
+          @include md {
+            width: 80px;
+          }
+        }
+        .text {
+          font-size: 20px;
+          transition: all 0.7s ease-in-out;
+        }
+        &:hover {
+          .text {
+            color: var(--pink);
+          }
+        }
+        &.watched {
+          .text {
+            color: var(--green);
+          }
+          svg {
+            color: var(--green);
+          }
+        }
+      }
+      .row {
+        display: flex;
+        align-items: center;
+        gap: 25px;
+        margin-bottom: 25px;
+        .playbtn {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          background-color: white;
+          border-radius: 30px;
+          padding: 8px 16px;
+          cursor: pointer;
+          transition: all ease 0.5s;
+          &:hover {
+            background-color: rgba(255, 255, 255, 0.8);
+          }
+          .text {
+            font-size: 14px;
+            font-weight: 500;
+            color: black;
+          }
+        }
+        .watchlistBtn {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 40px;
+          height: 40px;
+          background-color: rgba(255, 255, 255, 0.1);
+          border: 1px solid rgba(255, 255, 255, 0.3);
+          border-radius: 50%;
+          cursor: pointer;
+          transition: all ease 0.5s;
+          &:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+          }
+          svg {
+            font-size: 20px;
+            color: white;
+          }
+        }
+        .watchbtn {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          background-color: rgba(255, 255, 255, 0.1);
+          border: 1px solid rgba(255, 255, 255, 0.3);
+          border-radius: 30px;
+          padding: 8px 16px;
+          cursor: pointer;
+          transition: all ease 0.5s;
+          &:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+          }
+          &.watched {
+            background-color: rgba(0, 255, 0, 0.2);
+            border-color: rgba(0, 255, 0, 0.5);
+          }
+          .text {
+            font-size: 14px;
+            font-weight: 500;
+            color: white;
+          }
+        }
+      }
+
+      .info {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 15px 0;
+        display: flex;
+        .infoItem {
+          margin-right: 10px;
+          display: flex;
+          flex-flow: row wrap;
+        }
+        .text {
+          margin-right: 10px;
+          opacity: 0.5;
+          line-height: 24px;
+          &.bold {
+            font-weight: 600;
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+
+  .detailsBannerSkeleton {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    gap: 25px;
+    @include md {
+      gap: 50px;
+      flex-direction: row;
+    }
+    .contentWrapper {
+      display: flex;
+      gap: 50px;
+    }
+    .left {
+      flex-shrink: 0;
+      width: 100%;
+      display: block;
+      border-radius: 12px;
+      aspect-ratio: 1/1.5;
+      @include md {
+        max-width: 350px;
+      }
+    }
+    .right {
+      width: 100%;
+      .row {
+        width: 100%;
+        height: 25px;
+        margin-bottom: 20px;
+        border-radius: 50px;
+        &:nth-child(2) {
+          width: 75%;
+          margin-bottom: 50px;
+        }
+        &:nth-child(5) {
+          width: 50%;
+          margin-bottom: 50px;
+        }
+      }
+    }
+  }
+}

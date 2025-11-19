@@ -1,0 +1,114 @@
+.loginContainer {
+  color: white;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: flex-end;
+  position: relative;
+  padding-right: 16%;
+
+  .formContainer {
+    padding: 24px 0px;
+    width: 80%;
+    max-width: 500px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    background: rgba(7, 7, 7, 0.25);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    border-radius: 10px;
+    z-index: 999;
+    .loginTitle {
+      font-size: 20px;
+    }
+    .inputContainer {
+      display: flex;
+      flex-direction: column;
+      width: 80%;
+      label {
+        margin-bottom: 10px;
+        color: var(--orange);
+      }
+      input {
+        border: none;
+        height: 40px;
+        padding: 0px 10px;
+        border-radius: 6px;
+        color: var(--black);
+        font-weight: 500;
+        outline: none;
+        &:focus {
+          border: 2px var(--orange) solid;
+        }
+
+        &::-webkit-input-placeholder {
+          color: gray;
+          font-weight: 400;
+        }
+      }
+    }
+    .checkbox {
+      width: 80%;
+      display: flex;
+
+      align-items: center;
+      input {
+        height: 20px;
+        width: 20px;
+      }
+      label {
+        margin-left: 10px;
+        font-size: 14px;
+      }
+    }
+    h1 {
+      font-size: 36px;
+      background: var(--gradient);
+      -webkit-text-fill-color: transparent;
+      -webkit-background-clip: text;
+    }
+    p {
+      font-size: 14px;
+      font-weight: 400;
+      span {
+        margin-left: 10px;
+        color: var(--orange);
+        font-weight: 600;
+        font-size: 18px;
+      }
+    }
+    button {
+      height: 40px;
+      width: 100px;
+      border: none;
+      border-radius: 6px;
+      background: var(--gradient);
+      color: white;
+      font-weight: 400;
+      letter-spacing: 0.6px;
+    }
+  }
+  .backdrop-img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.5;
+    overflow: hidden;
+    .lazy-load-image-background {
+      width: 100%;
+      height: 100%;
+      img {
+        object-fit: cover;
+        object-position: center;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}
