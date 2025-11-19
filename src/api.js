@@ -1,14 +1,14 @@
-const host = "http://localhost:3001";
+const host = "https://ott-app-b.onrender.com";
 export default host;
 
 // Watchlist API functions
 export const watchlistAPI = {
   addMovie: async (movieData, token) => {
     const response = await fetch(`${host}/api/saved/addmovie`, {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
-        'auth-token': token,
+        "Content-Type": "application/json",
+        "auth-token": token,
       },
       body: JSON.stringify(movieData),
     });
@@ -17,9 +17,9 @@ export const watchlistAPI = {
 
   getMovies: async (token) => {
     const response = await fetch(`${host}/api/saved/getmovies`, {
-      method: 'GET',
+      method: "GET",
       headers: {
-        'auth-token': token,
+        "auth-token": token,
       },
     });
     return response.json();
@@ -27,9 +27,9 @@ export const watchlistAPI = {
 
   deleteMovie: async (movieId, token) => {
     const response = await fetch(`${host}/api/saved/deletemovie/${movieId}`, {
-      method: 'DELETE',
+      method: "DELETE",
       headers: {
-        'auth-token': token,
+        "auth-token": token,
       },
     });
     return response.json();
@@ -37,9 +37,9 @@ export const watchlistAPI = {
 
   markAsWatched: async (movieId, token) => {
     const response = await fetch(`${host}/api/saved/watch/${movieId}`, {
-      method: 'PUT',
+      method: "PUT",
       headers: {
-        'auth-token': token,
+        "auth-token": token,
       },
     });
     return response.json();
